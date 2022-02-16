@@ -24,12 +24,12 @@ export default function Hero() {
                             ONLINE EDUCATION
                         </h2>
 
-                        <div className="flex items-center">
+                        <div className="sm:flex md:flex lg:flex xl:flex items-center  ">
 
                             <Link href="#subscribe">
                                 <a className="btn">{formatMessage({id: "heroBtn1"})}</a></Link>
-                            <div className="ml-4">
-                                <Link href={'/entry'}>
+                            <div className="sm:ml-4">
+                                <Link href={'/login'}>
                                     <a className="btn2">{formatMessage({id: "login"})}</a></Link>
                             </div>
 

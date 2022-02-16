@@ -43,7 +43,7 @@ export default function Header() {
 
         <header id="header">
             <div className="container sm:container md:container mx-auto">
-                <div className="header_flex">
+                <div className="header_flex ">
                     <Link href={'/'}>
                         <div className="flex items-center justify-center">
                             <Image src={Logo} alt="Логотип" width={'40px'} height={'40px'}/>
