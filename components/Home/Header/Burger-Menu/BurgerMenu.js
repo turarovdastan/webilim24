@@ -37,20 +37,20 @@ export default function BurgerMenu() {
                     <Link href={'it-club'}>
                         <a
                             className="font-medium text-gray-400 text-xl leading-5 mx-4 hover:text-white nav-item">
-                            IT-Клуб
+                            Ишкер-клуб
                         </a>
                     </Link>
                     <Link href={'/all-courses'}>
                         <a
                             className="font-medium text-gray-400 text-xl leading-5 mx-4 hover:text-white nav-item">
-                            Курстар
+                            Тренингдер
                         </a>
                     </Link>
 
                     {/*<Link href={'/trips'}>*/}
                     <a
                         className="font-medium text-gray-700 text-xl leading-5 cursor-pointer  mx-4 nav-item">
-                        IT-Кемп
+                        Саякат
                     </a>
                     {/*</Link>*/}
                     <a href="/#subscribe" className="menu__nav-items__btn">Жазылуу</a>

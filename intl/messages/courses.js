@@ -3,12 +3,12 @@ import {LOCALES} from "../locales";
 
 export const Courses = {
     [LOCALES.KYRGYZ]:{
-        "courSes":"КУРСТАР",
+        "courSes":"Тренингдер",
         "graphic ":"Курстун графиги",
 
     },
     [LOCALES.RUSSIAN]:{
-        "courSes":"КУРСЫ",
+        "courSes":" Тренинги",
         "graphic ":"График курса",
     }
 
