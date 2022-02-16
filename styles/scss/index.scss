@@ -339,7 +339,7 @@ ul li {
       object-fit: contain;
       position: absolute;
       content: '';
-      background: url("../../assets/img/herobg.jpg") no-repeat center/cover !important;
+      background: url("../../assets/img/redlogo.svg") no-repeat bottom/300px !important;
       width: 80%;
       margin: auto;
       left: 0;
@@ -356,8 +356,8 @@ ul li {
       content: "";
       width: 100%;
       height: 120%;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
       z-index: -1;
     }
   }
