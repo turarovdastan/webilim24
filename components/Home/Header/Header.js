@@ -112,7 +112,11 @@ export default function Header() {
                             </li>
                         </ul>
                     </button>
-
+                    <div>
+                        <Link href={"/login"}>
+                            <a className="btn ">войти</a>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <BurgerMenu/>
