@@ -8,6 +8,8 @@
 @import "Form";
 @import "footer";
 @import "programCard";
+@import "EntryScss/Entry";
+@import "EntryScss/Entry_media";
 
 @import "master-class/master-clas";
 @import "./Club/ClubApplication";
@@ -40,7 +42,7 @@ a, a:hover {
 
 %btn {
   padding: 7px 18px;
-  background: #FF1A1A;
+  background: #B70825;
   color: white;
   font-weight: bold;
   font-size: 15px;
@@ -109,7 +111,7 @@ a, a:hover {
 .btn {
   @extend %btn;
   padding: 8px 30px;
-  background: #FF1A1A;
+  background: #B70825;
   color: white;
   font-weight: 600;
   font-size: 20px;
@@ -156,6 +158,9 @@ a, a:hover {
 
 .btn2 {
   @extend %btn2;
+  padding: 8px 30px;
+  font-size: 20px;
+
 }
 
 .closeItem {

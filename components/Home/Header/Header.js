@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from '../../../assets/img/Vector (2).svg'
+import Logo from '../../../assets/img/web.png'
 import Lang from '../../../assets/img/til.svg'
 import {LOCALES} from "../../../intl/locales";
 import {languages} from "../../../constants/languages";
@@ -48,7 +48,7 @@ export default function Header() {
                         <div className="flex items-center justify-center">
                             <Image src={Logo} alt="Логотип" width={'40px'} height={'40px'}/>
                             <h2 className="header--logo ml-2 uppercase">
-                                motion <br/> web llc
+                                webilim24 <br/>online education
                             </h2>
 
                         </div>
@@ -62,22 +62,22 @@ export default function Header() {
                         <Link href={'/all-courses'}>
                             <a
                                 className="font-medium text-gray-400 text-xl leading-5 mx-4 hover:text-white nav-item">
-                                Курстар
+                                Тренингдер
                             </a>
                         </Link>
                         <Link href={'it-club'}>
                             <a
                                 className="font-medium text-gray-400 text-xl leading-5 mx-4 hover:text-white nav-item">
-                                IT-Клуб
+                               Ишкер-клуб
                             </a>
                         </Link>
 
-                        {/*<Link href={'/trips'}>*/}
-                        <span
-                            className="font-medium text-gray-700 text-xl leading-5  mx-4 nav-item">
-                               IT-Кемп
-                           </span>
-                        {/*</Link>*/}
+                        <Link href={'/trips'}>
+                            <a
+                            className="font-medium text-gray-400 text-xl leading-5  mx-4 hover:text-white nav-item">
+                               Саякат
+                            </a>
+                        </Link>
 
 
                     </nav>

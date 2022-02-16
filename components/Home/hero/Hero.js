@@ -2,7 +2,7 @@ import React  from 'react'
 import {useIntl} from "react-intl"
 import Link from 'next/link'
 import Image from "next/image";
-import HeroImg from '../../../assets/img/bigLogo.png';
+import HeroImg from '../../../assets/img/web.png';
 
 
 export default function Hero() {
@@ -13,21 +13,25 @@ export default function Hero() {
             <div className="container md:container container-3sm mx-auto">
                 <div className="grid md:grid-cols-2  lg:grid-cols-2  ">
                     <div className="pt-[100px] hero_tit ">
-                        <h2 className="upTitle font-normal leading-8 text-[14px] md:text-[18px] lg:text-[20px]  text-white">
+                        <h2 className="upTitle font-normal leading-8 text-[14px] md:text-[18px] lg:text-[20px] text-[#9099A3] ">
                             {formatMessage({id: "heroTitle"})}
                         </h2>
-                        <h1 className=" title_hero text-white leading-relaxed  font-bold">
-                            MOTION WEB LLC
+                        <h1 className=" title_hero text-white leading-relaxed tracking-wider font-bold">
+                            WEBILIM24
                         </h1>
                         <h2 className="upTitle mb-4 font-normal leading-8 text-[14px] md:text-[18px] lg:text-[20px]  text-white">
 
-                        Заманбап билим - жаркын келечек!
+                            ONLINE EDUCATION
                         </h2>
 
-                        <div className="flex">
+                        <div className="flex items-center">
+
                             <Link href="#subscribe">
-                                <a className="btn">{formatMessage({id: "heroBtn1"})}</a>
-                            </Link>
+                                <a className="btn">{formatMessage({id: "heroBtn1"})}</a></Link>
+                            <div className="ml-4">
+                                <Link href={'/entry'}>
+                                    <a className="btn2">{formatMessage({id: "login"})}</a></Link>
+                            </div>
 
                         </div>
                     </div>
