@@ -360,7 +360,7 @@ export default function PrivateHero() {
                         <button className="btn">Сохранить</button>
                     </div>
                     <div className="sm:ml-4">
-                        <Link href={"/private/forgot-password"}>
+                        <Link href={"/profile/forgot-password"}>
                             <a>
                                 <button className="btn2">Изменить пароль</button>
                             </a>

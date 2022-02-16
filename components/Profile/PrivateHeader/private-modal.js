@@ -27,37 +27,37 @@ export default function PrivateModal() {
                     <div className="privateIcone mx-5">
                         <i className="far fa-user "/>
                     </div>
-                    <Links links="/private/private-page" name={"Личные данные"}/>
+                    <Links links="/profile/private-page" name={"Личные данные"}/>
                 </div>
                 <div className="flex flex-col justify-center  items-center md:mx-3">
                     <div className="privateIcone mx-5">
                         <i className="far fa-credit-card"/>
                     </div>
-                    <Links links="/private/subscription" name={"Подписка"}/>
+                    <Links links="/profile/subscription" name={"Подписка"}/>
                 </div>
                 <div className="flex flex-col justify-center items-center  md:mx-3">
                     <div className="privateIcone mx-5">
                         <i className="fas fa-shopping-basket"/>
                     </div>
-                    <Links links="/private/my-purchases" name={"Мои покупки"}/>
+                    <Links links="/profile/my-purchases" name={"Мои покупки"}/>
                 </div>
                 <div className="flex flex-col justify-center  items-center md:mx-3">
                     <div className="privateIcone mx-5">
                         <i className="far fa-wallet"/>
                     </div>
-                    <Links links="/private/payment-cards" name={"Платежные карты"}/>
+                    <Links links="/profile/payment-cards" name={"Платежные карты"}/>
                 </div>
                 <div className="flex flex-col justify-center items-center md:mx-3">
                     <div className="privateIcone mx-5">
                         <i className="far fa-bell"/>
                     </div>
-                    <Links links="/private/notifications" name={"Уведомления"}/>
+                    <Links links="/profile/notifications" name={"Уведомления"}/>
                 </div>
                 <div className="flex flex-col  justify-center items-center md:mx-3">
                     <div className="privateIcone mx-5">
                         <i className="fal fa-comment-alt"/>
                     </div>
-                    <Links links="/private/comments" name={"Комментарии"}/>
+                    <Links links="/profile/comments" name={"Комментарии"}/>
                 </div>
                 <div className="flex flex-col justify-center items-center md:mx-3">
                     <div className="privateIcone mx-5">

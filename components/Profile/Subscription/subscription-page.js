@@ -1,5 +1,5 @@
 import MyPurchasesHero from "../MyPurchases/my-purchases-hero";
-import {Data} from "../../../pages/profile/Data";
+import {Data} from "../../data";
 import ClubProcessItem from "../../index";
 
 
