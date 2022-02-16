@@ -13,21 +13,23 @@ function MyApp({Component, pageProps}) {
 
         <>
             <Head>
-                <title>Motion Web</title>
-                <link rel="icon" href="/favicon.png/"/>
+                <title>Webilim 24</title>
+                <link rel="icon" href="/web.png/"/>
                 <meta name="viewport"
                       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
                 <meta
                     name="description"
                     content="
-                Motion Web LLC IT-Академиясынын платформасы.
-                Замабап кесиптер:
-                ◾️Full-stack (ReactJs/NodeJs)
-                ◾️Python (Django)
-                ◾️Android(Kotlin)
-                ◾️UX/UI дизайн
-                ◾️Интернет маркетолог"
+                         ИШКЕРДИК АКАДЕМИЯСЫ📍БИЗНЕС
+                        Образование
+                       🇰🇬КРдеги №1 кыргыз тилдүү тренинг борбору!
+                       📍Натыйжалар @otzivi_iakademy
+                       📍30 миңден ашуун бүтүрүүчү🥳
+                       📍Онлайн ж/а оффлайн
+⠀
+                       Турусбеков 109/2 (Maximum)
+                       "
                 />
 
 
