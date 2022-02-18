@@ -28,8 +28,7 @@ export default function Header() {
     const menuBg = () => {
         if (process.browser) {
             let nav = document.querySelector('#header');
-            window.pageYOffset > 15 ? nav.classList.add('menu-bg') : nav.classList.remove('menu-bg');
-            console.log(nav)
+            window.pageYOffset > 15 ? nav?.classList.add('menu-bg') : nav?.classList.remove('menu-bg');
         }
 
     }

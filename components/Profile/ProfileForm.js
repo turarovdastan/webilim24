@@ -6,13 +6,16 @@ import Link from "next/link";
 import api from "../axiosAPI/api";
 import React from "react";
 import * as yup from "yup";
-
-
+import { setAccessToken,setRefreshToken,setUserId } from "../../redux/reducers/main";
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 const validationSchema = yup.object({
     email: yup.string().email('Бул жерге email жазыңыз'),
 })
 
 export default function ProfileForm() {
+    const dispatch = useDispatch()
+    const router = useRouter()
     function InputEyes() {
         const x = document.querySelector("#EntryInputPassword")
         const y = document.querySelector("#eyes1")
@@ -32,19 +35,21 @@ export default function ProfileForm() {
 
             <Formik
                 initialValues={{
-                    full_name: '',
-                    phone: '',
                     email: ''
                 }}
                 validationSchema={validationSchema}
-                onSubmit={ async (values, actions) => {
-                    try {
-                        await api.post('ru/api/v2/create-help-in-choosing/', values)
+                onSubmit={  (values, actions) => {
+                    api.post('/ru/api/v2/login/', values)
+                    .then(data=>{
+                        dispatch(setAccessToken(data.data.access))
+                        dispatch(setRefreshToken(data.data.refresh))
+                        dispatch(setUserId(data.data.user_id))
+                        router.push('/profile/private-page')
                         actions.setStatus('Сиздин буйрутмаңыз ийгиликтүү кетти, жакын арада биздин менеджерлер сизге  байланышат')
-                    } catch (e) {
-                        actions.setStatus('Серверден ката кетти')
-                    }
-
+                    })
+                    .catch(e=>{
+                        actions.setStatus(e.response && e.response.data.detail || 'Серверден ката кетти')
+                    })
                 }}
             >
                 {(formik) => (

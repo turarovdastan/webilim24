@@ -1,13 +1,34 @@
-import HomeLayout from "../../components/HomeLayout";
+import HomeLayout from "../../../components/HomeLayout";
 import {Field, Form, Formik} from "formik";
 import PhoneInput from "react-phone-number-input";
-import {useState} from "react";
-import ImgW from '../../assets/img/img_2.png'
+import {useState,useEffect} from "react";
+import ImgW from '../../../assets/img/img_2.png'
 import Image from "next/image"
-
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux"
+import {setCourse} from "../../../redux/reducers/course";
+import api from "../../../components/axiosAPI/api";
 
 export default function SignUpCourse() {
     const [value, setValue] = useState()
+    const [error, setError] = useState(null)
+
+    const dispatch = useDispatch()
+    const router = useRouter()
+    const fetchCourse = async (id) => {
+        dispatch(setCourse(null))
+        const {data} = await api.get(`/ru/api/v2/courses/${id}`)
+        dispatch(setCourse(data))
+    }
+
+    useEffect(() => {
+        if (router.isReady === false) {
+            return;
+        }
+        fetchCourse(router.query.id);
+    }, [router.isReady, router.query]);
+    const data = useSelector(state => state.course.course)
+    const lang = useSelector(state => state.main.locale)
 
     return (
         <HomeLayout>
@@ -20,25 +41,26 @@ export default function SignUpCourse() {
                         <div className="p-4 bg-white rounded-[15px]">
                             <div className=" border-b-2 border-[#9099A3] py-4">
                                 <span className="text-[#9099A3] text-[16px] font-light">курс</span>
-                                <h1 className="text-[2C3E50] text-[20px] font-bold mt-3">Командообразование</h1>
-                                <p className="capitalize text-[2C3E50] text-[17px] font-light sm:w-[51.5%] mt-2">Как правильно строить команду
-                                    и эффективно ею управлять,
-                                    чтобы  достигать  все  поставленные
-                                    цели.</p>
+                                <h1 className="text-[2C3E50] text-[20px] font-bold mt-3">{ lang==='ky' ? data?.title_ky : data?.title_ru }</h1>
+                                <p className="capitalize text-[2C3E50] text-[17px] font-light sm:w-[51.5%] mt-2"> { lang==='ky' ? data?.subtitle_ky : data?.subtitle_ru } </p>
                             </div>
                             <div className="grid sm:grid-cols-2">
                                 <div className="mt-4">
                                     <div className="border-b-2 b  order-[#9099A3] py-4">
                                         <span className="text-[#9099A3] text-[16px] font-light ">курс</span>
-                                        <p className="text-[2C3E50] text-[17px] font-light ">Маргулан Сейсембаев</p>
+                                        <p className="text-[2C3E50] text-[17px] font-light "> { data?.mentor.full_name }</p>
                                     </div>
                                     <div className="mt-4">
                                         <span className="text-[#9099A3] text-[16px] font-light ">В курс входит</span>
-                                        <p className="text-[2C3E50] text-[17px] font-light ">43 материала *</p>
+                                        <p className="text-[2C3E50] text-[17px] font-light " 
+                                            dangerouslySetInnerHTML={{
+                                                __html: lang==='ky' ? data?.learning_topics_ky : data?.learning_topics_ru
+                                              }}
+                                        ></p>
                                     </div>
                                 </div>
                                 <div>
-                                    <Image src={ImgW}/>
+                                    <img src={data?.image}/>
                                 </div>
                             </div>
                         </div>
@@ -48,16 +70,27 @@ export default function SignUpCourse() {
                             укажите ваши данные</p>
                         <div className="relative ">
                             <Formik
-                                initialValues={{name: "", email: ""}}
+                                initialValues={{full_name: "", email: "",promo_code:""}}
                                 onSubmit={async (values) => {
-                                    await new Promise((resolve) => setTimeout(resolve, 500));
-                                    alert(JSON.stringify(values, null, 2));
+                                    setError(null)
+                                    api.post('ru/api/v2/register-request/',{...values,phone:value,package_membership:router.query.id})
+                                    .then(data=>{
+                                        window.location.assign(JSON.parse(data.data['payment-data']).payment_page_url).call(this);
+                                    })
+                                    .catch(e=>{
+                                        setError(e.response && e.response.data?.email || 'Некоторые поля заполнены не корректно!')
+                                    })
+
                                 }}
                             >
+                            {(formik) => (
                                 <Form>
+                                    {error ? (
+                                        <div className="mt-6 text-[#C0392B]">{error}</div>  
+                                    ) : null}
                                     <div className="mt-4">
                                         <p className="text-[#9099A3] text-[14px] font-light">ФИО *</p>
-                                        <Field name="name" type="text"
+                                        <Field name="full_name" type="text" 
                                                className="rounded-[15px] bg-[#464951] pt-3 pb-3 pl-4 pr-4 text-white outline-none w-[95%]"
                                                placeholder="Name"/>
                                     </div>
@@ -66,30 +99,36 @@ export default function SignUpCourse() {
                                         <PhoneInput
                                             international
                                             countryCallingCodeEditable={false}
-                                            defaultCountry="RU"
+                                            defaultCountry="KG"
                                             value={value}
                                             onChange={setValue}/>
                                     </div>
                                     <div className="mt-4">
                                         <p className="text-[#9099A3] text-[14px] font-light">E-mail *</p>
-                                        <Field name="nsaame" type="email"
+                                        <Field name="email" type="email"
                                                className="rounded-[15px] bg-[#464951] pt-3 pb-3 pl-4 pr-4 text-white outline-none w-[95%]"
                                                placeholder="E-mail"/>
                                     </div>
                                     <div className="mt-4">
                                         <p className="text-[#9099A3] text-[14px] font-light">Промокод *</p>
-                                        <Field name="aman" type="text"
+                                        <Field name="promo_code" type="text"
                                                className="rounded-[15px] bg-[#464951] pt-3 pb-3 pl-4 pr-4 text-white outline-none w-[95%]"
                                                placeholder="###"/>
                                     </div>
+                                    <div className="mt-6">
+                                    {data?.memberships.map(i=>{
+                                        return (
+                                            <button
+                                                type="submit"
+                                                className="mt-4 text-white font-bold w-[95%] flex justify-center items-center pt-3 pb-3  bg-[#1A5CFF] rounded-[15px] box-shadow: 0px 5px 8px rgba(26, 92, 255, 0.2)">Оплатить
+                                                {i.price.split('.')[0]} сом / {i.membership_type} мес
+                                            </button>
+                                        )
+                                    })}
+                                </div>
                                 </Form>
+                            )}
                             </Formik>
-                            <div className="mt-6">
-                                <button
-                                    className="mt-4 text-white font-bold w-[95%] flex justify-center items-center pt-3 pb-3  bg-[#1A5CFF] rounded-[15px] box-shadow: 0px 5px 8px rgba(26, 92, 255, 0.2)">Оплатить
-                                    -225,00 $/год
-                                </button>
-                            </div>
 
                         </div>
                         <p className="text-[#9099A3] sm:w-[80%] mt-6 font-light">После регистрации наш менеджер свяжется с
