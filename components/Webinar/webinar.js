@@ -5,7 +5,6 @@ import {setWebinarList} from "../../redux/reducers/webinar";
 import api from "../axiosAPI/api";
 import {useEffect} from "react";
 import CourseContentLoader from "../ContentLoaders/courseContentLoader";
-import MyLoader from "../ContentLoaders/content-loader";
 
 
 

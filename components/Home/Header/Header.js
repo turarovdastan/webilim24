@@ -8,7 +8,7 @@ import {useDispatch} from "react-redux";
 import {useIntl} from "react-intl";
 import {setLocale} from "../../../redux/reducers/main";
 import BurgerMenu from "./Burger-Menu/BurgerMenu";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 
 export default function Header() {

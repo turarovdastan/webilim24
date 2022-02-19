@@ -6,7 +6,6 @@ import {setCourses} from "../../redux/reducers/course";
 import api from "../axiosAPI/api";
 import {useEffect} from "react";
 import CourseItem from "./CourseItem";
-import MasterClassLoader from "../ContentLoaders/masterClassLoader";
 import CourseContentLoader from "../ContentLoaders/courseContentLoader";
 
 
