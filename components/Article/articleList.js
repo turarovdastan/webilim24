@@ -14,13 +14,13 @@ export default function ArticleList({el}) {
     const dispatch = useDispatch()
     const fetchArticleList = async () => {
         dispatch(setArticleList(null))
-        const {data} = await api.get(`api/v1/article-list/`)
+        const {data} = await api.get(`ru/api/v1/article-list/`)
         dispatch(setArticleList(data))
     }
     useEffect(() => {
         fetchArticleList();
     }, []);
-    const data = useSelector(state => state.article)
+    const data = useSelector(state => state.article.articleList)
 
     return (
         <section id="courses" className="mt-14 lg:mt-0">
@@ -29,8 +29,8 @@ export default function ArticleList({el}) {
                    Статья
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                        {data.article ? (
-                            data.article.map((elem) => (
+                        {data ? (
+                            data?.map((elem) => (
                                 <ArticleItem el={elem} key={elem.id}/>
                             ))
                         ) : (

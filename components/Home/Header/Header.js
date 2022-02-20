@@ -4,7 +4,7 @@ import Logo from '../../../assets/img/web.png'
 import Lang from '../../../assets/img/til.svg'
 import {LOCALES} from "../../../intl/locales";
 import {languages} from "../../../constants/languages";
-import {useDispatch} from "react-redux";
+import {useDispatch,useSelector} from "react-redux";
 import {useIntl} from "react-intl";
 import {setLocale} from "../../../redux/reducers/main";
 import BurgerMenu from "./Burger-Menu/BurgerMenu";
@@ -12,6 +12,13 @@ import {useEffect} from "react";
 
 
 export default function Header() {
+
+    const access = useSelector(state => state.main.access_token)
+    const refresh = useSelector(state => state.main.refresh_token)
+    const userID = useSelector(state => state.main.user_id)
+
+    const isAuth = access && refresh && userID
+
     const dispatch = useDispatch();
     const {formatMessage, locale} = useIntl()
 
@@ -112,8 +119,8 @@ export default function Header() {
                         </ul>
                     </button>
                     <div>
-                        <Link href={"/login"}>
-                            <a className="btn ">войти</a>
+                        <Link href={isAuth ? '/profile/private-page' : "/login"}>
+                            <a className="btn ">{isAuth ? 'админка' : "войти"}</a>
                         </Link>
                     </div>
                 </div>

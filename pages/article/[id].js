@@ -13,9 +13,9 @@ export default function Article() {
     const dispatch = useDispatch()
     const router = useRouter()
     const fetchArticle = async (id) => {
-        dispatch(setArticle(null))
-        const {data} = await api.get(`/ru/api//v1/article-detail/${id}`)
-        dispatch(setArticleList(data))
+        dispatch(setArticleList(null))
+        const {data} = await api.get(`ru/api/v1/article-detail/${id}`)
+        dispatch(setArticle(data))
     }
 
     useEffect(() => {
@@ -24,9 +24,6 @@ export default function Article() {
         }
         fetchArticle(router.query.id);
     }, [router.isReady, router.query]);
-    const data = useSelector(state => state.article.article)
-
-    console.log(data)
 
     return (
         <HomeLayout>

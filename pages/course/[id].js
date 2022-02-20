@@ -11,7 +11,7 @@ import {useRouter} from "next/router";
 import CourseProgram from "../../components/Course/courseProgram/courseProgram";
 import TeamAbout from "../../components/Course/courseAbout";
 import MainForm from "../../components/Home/FormReq/Form";
-
+import CourseComments from '../../components/Course/CourseComments'
 export default function Course() {
     const dispatch = useDispatch()
     const router = useRouter()
@@ -38,6 +38,7 @@ export default function Course() {
             <CourseProgram/>
             <CourseLearn/>
             <MentorCourse/>
+            <CourseComments/>
             <MainForm/>
             {/*<Faq/>*/}
         </HomeLayout>

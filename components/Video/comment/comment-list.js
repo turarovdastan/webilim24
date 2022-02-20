@@ -8,15 +8,15 @@ class CommentList extends Component {
         super(props);
     }
     render() {
-        const {body} = this.props
+        const {text,full_name,avatar} = this.props
         return (
             <div className="flex flex-col md:flex-row md:items-center my-6">
                 <div className="relative w-[80px] h-[80px] rounded-[50%] overflow-hidden mx-6">
-                    <Image src={Img} layout="fill"/>
+                   {avatar ? (<Image src={avatar} layout="fill"/>)  : (<Image src={Img} layout="fill"/>) }
                 </div>
                 <div className="md:w-[80%] w-[100%]">
-                    <h1 className="text-white text-[20px] font-bold">Жоошбаев Курманбек</h1>
-                    <p className="text-[#9099A3] my-1 text-[14px] font-light">{body}</p>
+                    <h1 className="text-white text-[20px] font-bold">{full_name}</h1>
+                    <p className="text-[#9099A3] my-1 text-[14px] font-light">{text}</p>
                     <div className="flex">
                         <button
                             className="text-[#9099A3] bg-transparent text-[14px]  font-light border-0">Нравится
