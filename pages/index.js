@@ -5,6 +5,7 @@ import Webinar from "../components/Webinar/webinar";
 import CourseList from "../components/Course/courseList";
 import MasterClass from "../components/Master-Class/MasterClass";
 import ArticleList from "../components/Article/articleList";
+import Faq from "../components/Home/FAQ/FAQ";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
           <Webinar/>
           <MasterClass/>
           <Form/>
+          <Faq/>
       </HomeLayout>
 
   )
