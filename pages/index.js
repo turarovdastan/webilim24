@@ -4,6 +4,7 @@ import Form from "../components/Home/FormReq/Form";
 import Webinar from "../components/Webinar/webinar";
 import CourseList from "../components/Course/courseList";
 import MasterClass from "../components/Master-Class/MasterClass";
+import ArticleList from "../components/Article/articleList";
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
 
           <Hero/>
           <CourseList/>
+          <ArticleList/>
           <Webinar/>
           <MasterClass/>
           <Form/>
