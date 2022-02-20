@@ -12,13 +12,17 @@ import AllCoursesLoader from "../../ContentLoaders/all-coursesLoader";
 import CourseHeroNameLoader from "../../ContentLoaders/courseHeroNameLoader";
 import CourseHeroScheduleLoader from "../../ContentLoaders/courseHeroScheduleLoader";
 import CourseHeroVideoLoader from "../../ContentLoaders/courseHeroVideoLoader";
+import { useRouter } from "next/router";
 // import MyLoader from '../../ContentLoaders/content-loader'
+
+
 
 const border = {
     borderRadius: "20px"
 }
 
 export default function CourseHero() {
+    const router = useRouter()
     const course = useSelector(state => state.course.course)
     console.log(course)
     const { locale} = useIntl();
@@ -47,7 +51,7 @@ export default function CourseHero() {
                         )}
 
                         <div className="mt-8">
-                            <Link href={"#subscribe"} >
+                            <Link href={router.query.id + '/sign-up'}>
                                 <a className="btn w-[200px] text-center">Катталуу</a></Link>
                             {/*<p className="text-white mt-2 font-light  leading-[24px]">*/}
                             {/*    Открыта регистрация на курс по самой низкой цене 425,00 $</p>*/}
