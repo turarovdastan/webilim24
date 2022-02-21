@@ -38,12 +38,12 @@ export default function PrivateHeader() {
                     </div>
                     <Links links="/profile/my-purchases" name={"Мои покупки"}/>
                 </div>
-                <div className="flex items-center my-3">
-                    <div className="privateIcone mx-5">
-                        <i className="far fa-wallet"/>
-                    </div>
-                    <Links links="/profile/payment-cards" name={"Платежные карты"}/>
-                </div>
+                {/*<div className="flex items-center my-3">*/}
+                {/*    <div className="privateIcone mx-5">*/}
+                {/*        <i className="far fa-wallet"/>*/}
+                {/*    </div>*/}
+                {/*    <Links links="/profile/payment-cards" name={"Платежные карты"}/>*/}
+                {/*</div>*/}
                 <div className="flex items-center my-3">
                     <div className="privateIcone mx-5">
                         <i className="far fa-bell"/>
