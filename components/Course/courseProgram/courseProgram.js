@@ -8,7 +8,6 @@ import Card2 from "../../../assets/img/Group (1).png"
 import Card3 from "../../../assets/img/img_1.png"
 import Lesson from "../lesson";
 import {useSelector} from "react-redux";
-import CourseProgramLoader from "../../ContentLoaders/courseProgramLoader";
 
 
 export default function CourseProgram() {

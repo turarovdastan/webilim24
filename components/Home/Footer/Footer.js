@@ -85,13 +85,13 @@ export default function Footer() {
                         <h3 className="text-white font-bold leading-3 md:-ml-4	mt-4 md:mt-0 mb-6 md:mb-2">
                             Адрес
                         </h3>
-                        {/*<div className="relative">*/}
-                        {/*    <input type="email" placeholder="  Ваш e-mail"*/}
-                        {/*           className="footer_input leading-4 text-[#2C3E50] rounded-full w-60 rounded  py-3 px-2"/>*/}
-                        {/*    <Link href={"/login"}>*/}
-                        {/*        <a className=" btn absolute top-[0px] right-[30px]">войти</a>*/}
-                        {/*    </Link>*/}
-                        {/*</div>*/}
+                        <div className="relative">
+                            <input type="email" placeholder="  Ваш e-mail"
+                                   className="footer_input leading-4 text-[#2C3E50] rounded-full w-60 rounded  py-3 px-2"/>
+                            <Link href={"/login"}>
+                                <a className=" footer-btn absolute top-[0px] right-[30px]">войти</a>
+                            </Link>
+                        </div>
                         <p className="font-medium text-gray-400 text-sm leading-5 mt-4   mb-4">
                            ВЕБИЛИМ24, Кыргызстан, г.Бишкек
                             ул. Турусбекова. 109/2

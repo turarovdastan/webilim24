@@ -1,4 +1,4 @@
-import HomeLayout from "../components/HomeLayout";
+import HomeLayout from "../../components/HomeLayout";
 import PhoneInput from "react-phone-number-input";
 import {useState} from "react";
 import { Formik, Field, Form } from "formik";
@@ -53,7 +53,8 @@ export default function  Year() {
                                 </Formik>
                                 <div className="mt-6">
                                     <button
-                                        className="mt-4 text-white font-bold w-[95%] flex justify-center items-center pt-3 pb-3  bg-[#B70825] rounded-[15px] box-shadow: 0px 5px 8px rgba(26, 92, 255, 0.2)">Оплатить  -225,00 $/год
+                                        className="mt-4 text-white font-bold w-[95%] flex justify-center items-center pt-3 pb-3  bg-[#B70825] rounded-[15px] box-shadow: 0px 5px 8px rgba(26, 92, 255, 0.2)">
+                                        Оплатить  -225,00 $/год
                                     </button>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@ export default function  Year() {
                             <h5 className="text-white font-bold text-[16px] my-3 leading-[20px]">Другие варианты
                                 подписки:</h5>
                             <div className="flex">
-                                <Link href={'/year2'}>
+                                <Link href={'/forms/year2'}>
                                 <button className="btn">Год + - 585,00 $/год</button>
                                 </Link>
                             </div>

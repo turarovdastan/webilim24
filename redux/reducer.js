@@ -6,6 +6,7 @@ import course from "./reducers/course";
 import mentor from "./reducers/mentor";
 import webinar from "./reducers/webinar";
 import article from "./reducers/article";
+import faq from "./reducers/faq";
 
 
 
@@ -16,7 +17,8 @@ const store = configureStore({
         masterClass,
         webinar,
         mentor,
-        article
+        article,
+        faq
     }, middleware:[]
 })
 const makeStore = () => store

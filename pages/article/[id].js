@@ -1,10 +1,8 @@
 import HomeLayout from "../../components/HomeLayout";
-// import Faq from "../../components/Home/FAQ/FAQ";
 import {useDispatch, useSelector} from "react-redux";
 import api from "../../components/axiosAPI/api";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
-import ArticleItem from "../../components/Article/articleItem";
 import {setArticle, setArticleList} from "../../redux/reducers/article";
 import ArticleHero from "../../components/Article/articleHero";
 

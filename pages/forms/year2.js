@@ -1,4 +1,4 @@
-import HomeLayout from "../components/HomeLayout";
+import HomeLayout from "../../components/HomeLayout";
 import PhoneInput from "react-phone-number-input";
 import {useState} from "react";
 import { Formik, Field, Form } from "formik";
