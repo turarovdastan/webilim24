@@ -99,6 +99,24 @@ a, a:hover {
   margin: 0 auto;
 }
 
+.reply-container{
+  input{
+    min-width: 80%;
+    height: 30px;
+    outline: none;
+    background:#46434e;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 20px;
+  }
+  button{
+    height: 30px;
+    background: #B70825;
+    border-radius: 10px;
+    padding: 2px 20px;
+    color: #fff;
+  }
+}
 
 .ClubPackage_btn {
   transition: 0.3s;
@@ -147,7 +165,17 @@ a, a:hover {
   transition: 0.3s;
   margin: 20px 0;
 }
-
+.footer-btn {
+  @extend %btn;
+  padding: 5px 20px;
+  background: #B70825;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  display: flex;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 .masterImg {
   object-fit: cover;
 }

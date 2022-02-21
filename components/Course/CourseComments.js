@@ -1,4 +1,4 @@
-import CommentList from "../Video/comment/comment-list";
+import CommentList from "../Video/comment/comment-list-course";
 import {useSelector,useDispatch} from "react-redux";
 import { useState } from "react";
 import api from "../axiosAPI/api";
@@ -23,9 +23,9 @@ export default function CourseComments (){
     const renderComments = (article_comments) => {
         const comments = article_comments;
         return comments.map(comment => {
-            const {id, text,author} = comment
+            const {id } = comment
             return (
-                <CommentList key={id} text={text} avatar={author.avatar} full_name={author.full_name}/>
+                <CommentList key={id} comment={comment}/>
             )
         })
     }

@@ -1,6 +1,6 @@
 import MyPurchasesHero from "../MyPurchases/my-purchases-hero";
 import {Data} from "../../data";
-import ClubProcessItem from "../../index";
+import ClubProcessItem from "../../../pages/packages";
 
 
 export default function  SubscriptionPage(){
