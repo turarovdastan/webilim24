@@ -2,12 +2,12 @@ import React, {useState} from "react";
 import Image from "next/image";
 import Img from "../../../assets/img/To_be_youself 1.png";
 import {useSelector,useDispatch} from 'react-redux'
-import {setArticle} from "../../../redux/reducers/article";
+import {setCourse} from "../../../redux/reducers/course";
 import api from "../../axiosAPI/api";
 import {useRouter} from 'next/router'
 function CommentList({comment}) {
         const dispatch = useDispatch()
-        const {text,author:{full_name},avatar,id:commentId,article_comment_replies} = comment
+        const {text,author:{full_name},avatar,id:commentId,replies} = comment
         const access = useSelector(state => state.main.access_token)
         const refresh = useSelector(state => state.main.refresh_token)
         const userID = useSelector(state => state.main.user_id)
@@ -24,12 +24,11 @@ function CommentList({comment}) {
                 author: userID,
                 text: replyCommentText
               }
-            api.post('ru/api/v1/add-article-reply-comment/',data,{headers: {
+            api.post('ru/api/v2/add-course-reply-comment/',data,{headers: {
             'Authorization': `Basic ${access}` 
             }}).then(data=>{
-                setReplyCommentText('')
-                api.get(`ru/api/v1/article-detail/${router.query.id}`).then(data=>{
-                    dispatch(setArticle(data.data))
+                api.get(`ru/api/v2/course-detail/${router.query.id}`).then(data=>{
+                    dispatch(setCourse(data.data))
                 })
             }).catch(error=>{
                 console.log(error);
@@ -59,7 +58,7 @@ function CommentList({comment}) {
                     <input onChange={(e)=>setReplyCommentText(e.target.value)} placeholder="ответить на коментарий..."/>
                     <button onClick={()=>postComment(commentId)}>отправить</button>
                 </div>) : (<h2 className="ml-[13%] text-[#B70825] ">вы не авторизованы</h2>))}
-                {article_comment_replies && article_comment_replies.map((i,k)=>{
+                {replies && replies.map((i,k)=>{
                 return (<div className="flex ml-[10%] flex-col md:flex-row md:items-center my-6">
                     <div className="relative w-[40px] h-[40px] rounded-[50%] overflow-hidden mx-6">
                     {avatar ? (<Image src={avatar} layout="fill"/>)  : (<Image src={Img} layout="fill"/>) }
